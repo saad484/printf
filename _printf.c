@@ -1,11 +1,11 @@
 #include "main.h"
-/**
-* _printf - print characters
-* @format: number of argument to be print
-*
-* Return: length of the characters
-*/
 
+/**
+ * _printf - print formatted text
+ * @format: the format string
+ *
+ * Return: the number of characters printed
+ */
 int _printf(const char *format, ...)
 {
 int chPrint = 0;
@@ -23,26 +23,19 @@ else
 {
 format++;
 if (*format == '\0')
-{
 break;
-}
 if (*format == '%')
 {
-chPrint += _print_char(*format);
+chPrint += _print_char('%');
 }
-else if (*format == 'c')
+else
 {
-char c = va_arg(lsarg, int);
-chPrint += _print_char(*format);
+chPrint += handle_format_specifier(format, lsarg);
 }
-else if (*format == 's')
-{
-char *strP = va_arg(lsarg, char*);
-int str_length = 0;
-chPrint += _print_string(strP);
 }
-} format++;
+format++;
 }
 va_end(lsarg);
 return (chPrint);
 }
+

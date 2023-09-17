@@ -11,8 +11,8 @@
 - [printf - cplusplus.com](http://www.cplusplus.com/reference/cstdio/printf/)
 
 ## Table of Content
--[Description](#description)
--[Compimation](#compilation)
+- [Description](#description)
+- [Compimation](#compilation)
 
 ---
 
