@@ -16,7 +16,8 @@ int i, unknown_len = 0;
 
 fs_t fs_types[] = {
 {'c', print_character}, {'s', print_string}, {'%', print_percent_sign},
-{'i', print_integer}, {'d', print_integer},
+{'i', print_integer}, {'d', print_integer}, {'b', print_binary},
+{'u', print_uns_integer},
 {'\0', NULL}
 };
 

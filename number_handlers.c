@@ -50,3 +50,17 @@ unsigned int n = va_arg(argList, unsigned int);
 char *str = to_base(n, 10, 0);
 return (_puts(str));
 }
+
+/**
+ * print_binary - Prints a binary
+ *
+ * @argList: the list a of arguments
+ *
+ * Return: Number of chars printed
+ */
+int print_binary(va_list argList)
+{
+unsigned int number = va_arg(argList, unsigned int);
+char *ptrStr = to_base(number, 2, 0);
+return (_puts(ptrStr));
+}
