@@ -1,29 +1,37 @@
-#ifndef PRINTF_MAIN_H
-#define PRINTF_MAIN_H
+#ifndef _PRINTF_H
+#define _PRINTF_H
 
 #include <stdarg.h>
 #include <unistd.h>
 #include <stdio.h>
-#include <string.h>
 
-/*-- Functions --*/
-/* _print_char - prints a character*/
-int _print_char(char c);
-/* _print_string - prints a string*/
-int _print_string(char *str);
+#define UNUSED(x) (void)(x)
+#define BUFFER_SIZE 1024
 
-int _print_number(int n);
+/**
+ * struct FormatSpecifier - Struct to represent a format specifier
+ *
+ * @specifier: the format specifier character.
+ * @action: the function associated with the specifier.
+ */
+typedef struct FormatSpecifier
+{
+char specifier;
+int (*action)(va_list);
+} fs_t;
 
-int _print_unsigned_number(unsigned int n);
-
-
-
-
-int handle_format_specifier(const char *format, va_list lsarg);
-
-
-
-/*-- Functions Prototypes--*/
+/* Printing Functions */
+char *to_base(unsigned long int num, int base, int lowercase);
+int count_digits(int num);
+int _puts(char *s);
+int _putc(char c);
 int _printf(const char *format, ...);
+int printf_helper(const char *format, int currentIndex, va_list argList);
 
-#endif /* PRINTF_MAIN_H */
+int print_character(va_list argList);
+int print_string(va_list argList);
+int print_percent_sign(va_list argList);
+int print_integer(va_list argList);
+int print_uns_integer(va_list argList);
+
+#endif /* _PRINTF_H */
